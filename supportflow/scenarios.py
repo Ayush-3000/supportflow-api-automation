@@ -1,0 +1,48 @@
+SCENARIOS = {
+    "order_status": {
+        "label": "Order status",
+        "description": "Look up a shipped order and prepare a grounded reply",
+        "subject": "Where is my order?",
+        "message": "Can you check the status of order #1042?",
+        "order_number": "1042",
+        "customer_email": "alex@example.com",
+    },
+    "shipping_policy": {
+        "label": "Shipping question",
+        "description": "Retrieve an approved shipping policy",
+        "subject": "Shipping timeframe",
+        "message": "How long does standard shipping take?",
+        "customer_email": "casey@example.com",
+    },
+    "refund": {
+        "label": "Refund request",
+        "description": "Escalate a sensitive request without drafting or sending",
+        "subject": "Refund please",
+        "message": "I would like a refund for my order.",
+        "order_number": "1042",
+        "customer_email": "alex@example.com",
+    },
+    "api_failure": {
+        "label": "API outage",
+        "description": "Show bounded retries and the recoverable failure queue",
+        "subject": "Order status",
+        "message": "Please check the status of order #1046.",
+        "order_number": "1046",
+        "customer_email": "jamie@example.com",
+    },
+    "identity_mismatch": {
+        "label": "Identity mismatch",
+        "description": "Refuse to disclose an order belonging to another customer",
+        "subject": "Order status",
+        "message": "Where is order #1042?",
+        "order_number": "1042",
+        "customer_email": "other@example.com",
+    },
+    "unknown": {
+        "label": "Unknown question",
+        "description": "Route a question with no approved source to a person",
+        "subject": "Custom request",
+        "message": "Can you manufacture a custom purple version?",
+        "customer_email": "morgan@example.com",
+    },
+}

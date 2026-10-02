@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "supportflow-api-automation"
+version = "1.0.0"
+description = "Support ticket automation with API order lookup, grounded drafts, and human approval"
+requires-python = ">=3.11"
+dependencies = ["fastapi==0.142.2", "uvicorn==0.54.0", "httpx==0.28.1", "pydantic==2.13.5"]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "ruff==0.16.10"]
+
+[tool.setuptools.packages.find]
+include = ["supportflow*"]
+
+[tool.setuptools.package-data]
+supportflow = ["static/*", "data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+ignore = ["E501", "B008"]

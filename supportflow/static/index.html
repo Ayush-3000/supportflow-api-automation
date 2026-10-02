@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="SupportFlow: API-connected customer support with grounded drafts and human approval."
+    />
+    <title>SupportFlow · Review workspace</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="/"
+        ><span class="brand-mark">S</span
+        ><span
+          >supportflow<span class="brand-sub">API AUTOMATION</span></span
+        ></a
+      >
+      <div class="workspace">
+        <span class="workspace-icon">SF</span>
+        <div>Demo workspace<small>Customer operations</small></div>
+      </div>
+      <p class="nav-label">WORKSPACE</p>
+      <a class="nav-item active" href="#queue"
+        ><span aria-hidden="true">▤</span> Review queue
+        <span id="nav-count" class="nav-count">0</span></a
+      >
+      <a class="nav-item" href="#scenarios"
+        ><span aria-hidden="true">◇</span> Demo scenarios</a
+      >
+      <a class="nav-item" href="#connections"
+        ><span aria-hidden="true">⇄</span> Connections</a
+      >
+      <div class="sidebar-bottom">
+        <span class="safe-dot"></span> Human approval required<small
+          >Every outgoing reply passes through you.</small
+        >
+      </div>
+    </aside>
+    <main>
+      <header class="topbar">
+        <span>WORKSPACE <span class="slash">/</span> REVIEW QUEUE</span>
+        <div>
+          <span id="mode-badge" class="mode-badge">LOCAL DEMO</span
+          ><span class="avatar" aria-label="Demo operator">DR</span>
+        </div>
+      </header>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">SUPPORT, WITH A CLEAR PAPER TRAIL</p>
+          <h1>Every reply, reviewed.</h1>
+          <p>Verified order data. Grounded answers. A person in control.</p>
+        </div>
+        <a class="quiet-button" href="/docs" target="_blank" rel="noopener"
+          >Explore the API <span aria-hidden="true">↗</span></a
+        >
+      </section>
+      <div id="notice" class="notice">
+        <span class="notice-symbol">◎</span>
+        <div>
+          <strong>A working portfolio demo</strong
+          ><span
+            >Fictional orders and a local helpdesk. Drafts use approved
+            templates; optional AI drafting is available.</span
+          >
+        </div>
+      </div>
+      <section class="stats" aria-label="Queue summary">
+        <article>
+          <span>Awaiting review</span><strong id="stat-review">0</strong
+          ><small><i class="dot amber"></i> Ready for a human decision</small>
+        </article>
+        <article>
+          <span>Escalated</span><strong id="stat-escalated">0</strong
+          ><small
+            ><i class="dot purple"></i> Sensitive or unsupported requests</small
+          >
+        </article>
+        <article>
+          <span>Delivered</span><strong id="stat-sent">0</strong
+          ><small
+            ><i class="dot green"></i> Approved replies acknowledged</small
+          >
+        </article>
+        <article>
+          <span>Retry queue</span><strong id="stat-failed">0</strong
+          ><small
+            ><i class="dot red"></i> Failed API lookups to investigate</small
+          >
+        </article>
+      </section>
+      <section id="scenarios" class="scenario-bar">
+        <div>
+          <strong>Try a workflow</strong
+          ><small>Run a fictional ticket through the APIs.</small>
+        </div>
+        <div id="scenario-buttons" class="scenario-buttons"></div>
+      </section>
+      <section id="queue" class="queue-heading">
+        <div>
+          <h2>Review queue <span id="total-count">0</span></h2>
+          <p>Review the evidence before approving a reply.</p>
+        </div>
+        <div class="queue-tools">
+          <label class="sr-only" for="filter">Filter tickets</label
+          ><select id="filter">
+            <option value="all">All tickets</option>
+            <option value="pending_review">Awaiting review</option>
+            <option value="escalated">Escalated</option>
+            <option value="failed">Retry queue</option>
+            <option value="sent">Delivered</option>
+            <option value="delivery_unknown">Delivery uncertain</option></select
+          ><button id="refresh" class="quiet-button" type="button">
+            ↻ Refresh
+          </button>
+        </div>
+      </section>
+      <section class="review-grid">
+        <div class="ticket-panel">
+          <div class="panel-label">TICKETS <span>NEWEST FIRST</span></div>
+          <div id="ticket-list" class="ticket-list"></div>
+        </div>
+        <article id="detail" class="detail-panel">
+          <div class="empty">
+            <div class="empty-mark">◇</div>
+            <h3>Your review workspace is ready</h3>
+            <p>
+              Choose “Order status” above to see a ticket move from API lookup
+              to an approval-ready draft.
+            </p>
+          </div>
+        </article>
+      </section>
+      <section id="connections" class="connections">
+        <div>
+          <p class="eyebrow">THE INTEGRATION PATH</p>
+          <h2>One workflow. Two real HTTP connections.</h2>
+          <p>
+            The local APIs simulate external services. A read-only Shopify
+            adapter is included.
+          </p>
+        </div>
+        <div class="connection-path">
+          <span><i class="dot green"></i> Ticket webhook</span><b>→</b
+          ><span><i class="dot green"></i> Order API</span><b>→</b
+          ><span><i class="dot amber"></i> Human review</span><b>→</b
+          ><span><i class="dot green"></i> Helpdesk API</span>
+        </div>
+      </section>
+      <details class="access-settings">
+        <summary>Operator access settings</summary>
+        <label for="api-key">Workspace API key</label
+        ><input
+          id="api-key"
+          type="password"
+          autocomplete="off"
+          placeholder="Enter your workspace key"
+        /><button id="connect" class="quiet-button" type="button">
+          Connect workspace
+        </button>
+        <p>
+          Local demo key: <code>demo-local-key</code>. Stored in this tab only.
+          Live mode requires your configured key.
+        </p>
+      </details>
+      <footer>
+        <span>SupportFlow · Built by Ayush Saharan</span
+        ><span>Source-grounded automation · Review-first delivery</span>
+      </footer>
+    </main>
+    <dialog id="approval-dialog">
+      <form method="dialog">
+        <span class="eyebrow">HUMAN APPROVAL</span>
+        <h2>Deliver this reviewed reply?</h2>
+        <p id="confirm-description"></p>
+        <label for="reviewer">Reviewer name</label
+        ><input id="reviewer" value="Demo reviewer" maxlength="100" required />
+        <div class="dialog-actions">
+          <button value="cancel" class="quiet-button">Keep reviewing</button
+          ><button id="confirm-approval" type="button" class="primary-button">
+            Approve & deliver
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

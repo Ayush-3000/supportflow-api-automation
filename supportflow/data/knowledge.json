@@ -1,0 +1,4 @@
+[
+  {"id":"shipping-policy","title":"Shipping and delivery policy","keywords":["shipping","delivery","deliver","dispatch"],"text":"Standard shipping takes 3–5 business days after dispatch. Dispatch confirmation includes tracking when available. This is a general estimate, not a guarantee for an individual order.","version":"2026-10-demo"},
+  {"id":"setup-guide","title":"Product setup guide","keywords":["setup","manual","instructions","install"],"text":"The product setup manual is included in the order confirmation. If it is missing, a support specialist can provide the correct manual after checking the product model. Safety or electrical questions must be reviewed by a specialist.","version":"2026-10-demo"}
+]
